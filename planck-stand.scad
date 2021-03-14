@@ -24,6 +24,8 @@ module planck_stand(recess_width, recess_depth, angle, stand_thickness=4, planck
     external_height=planck_case_height+stand_thickness*2;
     external_radius=planck_case_radius+stand_thickness;
 
+    translate([0, 0, recess_width+stand_thickness])
+    rotate([0, 180, 0])
     difference() {
         translate([0, 0, external_height])
         rotate([0, 90, 0])
@@ -49,4 +51,8 @@ module planck_stand(recess_width, recess_depth, angle, stand_thickness=4, planck
     }
 }
 
+// Left hand model
 planck_stand(angle=12, recess_width=20, recess_depth=8, $fn=100);
+
+// Right hand model
+/* mirror([1, 0, 0]) planck_stand(angle=12, recess_width=20, recess_depth=8, $fn=100); */
